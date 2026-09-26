@@ -53,7 +53,7 @@ SUMMER_PROGRAMS = [
 POOLS = {
     "castaic": dict(
         name="Castaic Aquatic Center", short="Castaic", open=True,
-        tagline="An outdoor 50-meter pool in the hills above Santa Clarita. Open Monday to Saturday.",
+        tagline="Four outdoor pools and a splash pad in the hills above Santa Clarita. The 50-meter pool is closed for now; everything runs in the 25-yard pool.",
         address="31350 Castaic Rd", city="Castaic, CA 91384", phone="661-294-6467",
         site="https://castaic.lacountypools.com", lessons_path="/lessons-fall/", teams_path="/sports-fall/",
         register=activenet(263), weather="https://forecast7.com/en/34d49n118d63/castaic/?unit=us",
@@ -62,7 +62,7 @@ POOLS = {
              "!5e0!3m2!1sen!2sus!4v1698981544090!5m2!1sen!2sus"),
         views=dict(finder="94hllfke9HUuzUaHoB2ZZH", week="R07JQHtJ4XjdAAarm8ofK7", lessons="1MbB9BQQR4z5zvvAvSFLvW", teams="FeqLr6dg7dmWVv650PO6tv"),
         facts=[("6am", "Lap swim opens weekdays; 8am Saturday"), ("Free", "Rec swim for all ages, weekdays 3&ndash;4pm"),
-               ("50 m", "Eight long-course lanes, twenty short-course"), ("Aug 24&ndash;Nov 21", "Fall season. Closed Sundays")],
+               ("4 pools", "50-meter (closed for now), 10-lane 25-yard, 3-lane shallow, splash pad"), ("Aug 24&ndash;Nov 21", "Fall season. Closed Sundays")],
         programs=FALL_PROGRAMS + [("Team Sports", "team-sports.html", "Youth water polo weekdays 5&ndash;6pm, ages 7 to 17. Swim team, dive team and artistic swimming dates to be announced.")],
         season="Fall 2026, August 24 to November 21", sessions=FALL_SESSIONS, current="Session 3",
         teams=[("Water Polo", "Fall 2026, August 24 to November 20.<br>Monday to Friday, 5&ndash;6pm.", False),
