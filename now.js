@@ -55,10 +55,13 @@
         .filter((o) => { const k = `${o.date}|${o.start}|${o.end}|${o.title}|${where(o)}`; if (seen.has(k)) return false; seen.add(k); return true; })
         .sort((a, b) => (a.date + a.start).localeCompare(b.date + b.start));
       const todays = occ.filter((o) => o.date === today);
-      const live = todays.filter((o) => mins(o.start) <= nowMin && nowMin < mins(o.end));
-      const later = todays.filter((o) => mins(o.start) > nowMin).slice(0, live.length ? 4 : 6);
+      // A board over several pools stays short: the hero is not the whole schedule.
+      const allLive = todays.filter((o) => mins(o.start) <= nowMin && nowMin < mins(o.end));
+      const live = multi ? allLive.slice(0, 4) : allLive;
+      const later = todays.filter((o) => mins(o.start) > nowMin).slice(0, multi ? 3 : live.length ? 4 : 6);
 
       let html = live.map((o) => row(o, true)).join("");
+      if (allLive.length > live.length) html += `<li class="later-h"><span class="later">and ${allLive.length - live.length} more right now</span></li>`;
       if (later.length) {
         html += (live.length ? `<li class="later-h" aria-hidden="true"><span class="later">Later today</span></li>` : "") +
           later.map((o) => row(o, false)).join("");
