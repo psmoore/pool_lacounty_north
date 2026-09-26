@@ -150,7 +150,7 @@ def head(title, desc, root, photo):
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{root}style.css">
 </head>
-<body style="--photo:url('{photo}')">
+<body style="--photo:url('{photo}')"><!-- the photo path is relative to style.css at the site root -->
 <div class="ribbon"><b>Unofficial preview.</b> A redesign proposal for LA County's
   <a href="{MORE}" target="_blank" rel="noopener">lacountypools.com</a> sites, not a Los Angeles County page.
   Schedules by <a href="https://www.poolrelay.com" target="_blank" rel="noopener">Pool Relay</a>.</div>
@@ -165,7 +165,7 @@ def pool_page(key, slug, title, desc, body, scripts=""):
         return f'<a href="{href}"{cur}>{label}</a>'
     nearby = "".join(f'<li><a href="../{k}/index.html">{POOLS[k]["name"]}</a></li>' for k in ORDER if k != key)
     weather = f'<li><a href="{P["weather"]}" target="_blank" rel="noopener">Weather</a></li>' if P["weather"] else ""
-    return head(title, desc, "../", "pool.jpg") + f"""
+    return head(title, desc, "../", f"{key}/pool.jpg") + f"""
 <header class="top">
   <div class="wrap">
     <a class="brand" href="index.html">{P["name"]}<small>Swim, play, compete</small></a>
@@ -231,7 +231,7 @@ def rows(programs):
 
 def home(key):
     P = POOLS[key]
-    closed = "Closed for the season. The pool reopens next summer; the summer 2026 schedule is below." if not P["open"] else ""
+    closed = "The pool reopens next summer. Last summer's schedule is below." if not P["open"] else ""
     status = ('<span class="status open">Open Monday to Saturday</span>' if P["open"]
               else '<span class="status closed">Closed until next summer</span>')
     finder = (cal(P["views"]["finder"], P["name"] + ", one day") if "finder" in P["views"] else
@@ -252,7 +252,7 @@ def home(key):
       <h2><span class="dot" aria-hidden="true"></span><span class="label">In the water now</span></h2>
       <p class="when">Checking the schedule&hellip;</p>
       <ul></ul>
-      <p class="foot"><a href="schedule.html">See the whole week</a></p>
+      <p class="foot"><a href="schedule.html">{"See the whole week" if P["open"] else "See last summer's schedule"}</a></p>
     </div>
   </div>
 </section>
