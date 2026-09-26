@@ -24,4 +24,4 @@ Built with `python3 build.py` (all content lives in its `POOLS` config); served 
 - Val Verde and El Cariso: "Everybody Swims" lists Saturday twice (12:30–2:30 and 12:30–4). El Cariso's Parent and
   Child class is listed at 11am, the same hour as Water Exercise. Summer lap swim 4–6pm shares the pool with lessons
   and all four team sports.
-- Pools are split into areas (lap lanes, lessons, water exercise, teams, open swim) because no page says how they share water.
+- Everything is booked on its pool (Castaic: on real lanes, estimated) because no page says how programs share the water.

@@ -263,7 +263,7 @@ def home(key):
   <div class="wrap">
     <div class="intro">
       <h2>{"Find a swim time" if P["open"] else "Summer schedule"}</h2>
-      <p>{"Every part of the pool on one calendar. Pick a day, or use the Teams menu to show one program." if P["open"]
+      <p>{"Everything in the water on one calendar. Pick a day, or use the Teams menu to show one program." if P["open"]
           else "Everything that ran in the pool last summer, from June 8 to August 15. Use the Teams menu to show one program."}</p>
     </div>
     {finder}
